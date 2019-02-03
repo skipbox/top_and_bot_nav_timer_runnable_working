@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     Button btn_connect;
     TextView txt_top;
     TextView txt_bottom;
+    TextView txt_dev_mac;
+    TextView txt_dev_name;
     Button btn_send_1;
 
     public static String deviceAddress = "30:AE:A4:38:74:D2";
@@ -81,16 +83,24 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         //added
+        txt_dev_mac = (TextView) findViewById(R.id.txt_3);
+        txt_dev_name = (TextView) findViewById(R.id.txt_4);
         txt_top = (TextView) findViewById(R.id.txt_top);
         btn_connect = (Button) findViewById(R.id.btn_connect);
         btn_connect.setBackgroundColor(Color.CYAN);
         txt_bottom = (TextView) findViewById(R.id.txt_bottom);
 
-        //start_up_show_this();
+        start_up_show_this();
     }
     //===========
 
-
+    @Override
+    protected void onResume()
+    {
+        // TODO Auto-generated method stub
+        super.onResume();
+        start_up_show_this();
+    }
     //=======================Button clicks
     @SuppressLint("SetTextI18n")
     public void buttonOnClick(View view) {
@@ -204,14 +214,18 @@ public class MainActivity extends AppCompatActivity {
         //import static com.example.laowai.bt_with_pref.pref_simple.my_settings_xxx;(i clicked alt enter)
         SharedPreferences prefs = getSharedPreferences(my_settings_xxx, MODE_PRIVATE);
         //
-        String temp_xxx = prefs.getString("key_first_name","default_x");
+        String temp_xxx = prefs.getString("key_dev_name","ESP32test2");
+        txt_dev_name.setText("DevName: "+temp_xxx);
+
+        temp_xxx = prefs.getString("key_dev_mac","def_mac");
+        txt_dev_mac.setText("Mac: "+temp_xxx);
 
         //defined the button 2x need to fix this.
         Button b1_b1 = (Button)findViewById(R.id.btn_send_1);
         b1_b1.setText(temp_xxx);
 
-        temp_xxx = prefs.getString("key_url","default_x");
-        mTextMessage.setText(temp_xxx);
+
+        mTextMessage.setText("Ready");
 
         //Check if device is still connected
         if(bt_conn != false){

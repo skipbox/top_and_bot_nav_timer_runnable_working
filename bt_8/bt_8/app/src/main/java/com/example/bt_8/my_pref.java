@@ -28,11 +28,11 @@ public class my_pref extends AppCompatActivity {
 
             EditText edit_text_name_v = (EditText)findViewById(R.id.edit_text_name);
             String saved_first_name = String.valueOf(edit_text_name_v.getText());
-            editor.putString("key_first_name", saved_first_name);
+            editor.putString("key_dev_name", saved_first_name);
 
             EditText edit_text_url_v = (EditText)findViewById(R.id.edit_text_url);
             String saved_url = String.valueOf(edit_text_url_v.getText());
-            editor.putString("key_url", saved_url);
+            editor.putString("key_dev_mac", saved_url);
 
             editor.apply();
 
@@ -41,11 +41,11 @@ public class my_pref extends AppCompatActivity {
         if (the_id == R.id.b_read) {
 
             SharedPreferences prefs = getSharedPreferences(my_settings_xxx, MODE_PRIVATE);
-            String temp_xxx = prefs.getString("key_first_name","default_default");
+            String temp_xxx = prefs.getString("key_dev_name","dev_name");
             EditText edit_text_name_v = (EditText)findViewById(R.id.edit_text_name);
             edit_text_name_v.setText(temp_xxx);
 
-            String temp_yyy = prefs.getString("key_url","default_default");
+            String temp_yyy = prefs.getString("key_dev_mac","mac_add");
             EditText edit_text_url_v = (EditText)findViewById(R.id.edit_text_url);
             edit_text_url_v.setText(temp_yyy);
         }
@@ -60,12 +60,12 @@ public class my_pref extends AppCompatActivity {
 
     public void start_up_show_this(){
         SharedPreferences prefs = getSharedPreferences(my_settings_xxx, MODE_PRIVATE);
-        String temp_xxx = prefs.getString("key_first_name","default_default");
+        String temp_xxx = prefs.getString("key_dev_name","dev_name");
         EditText edit_text_name_v = (EditText)findViewById(R.id.edit_text_name);
         edit_text_name_v.setText(temp_xxx);
 
         //SharedPreferences prefs = getSharedPreferences(my_settings_xxx, MODE_PRIVATE);
-        String temp_yyy = prefs.getString("key_url","default_default");
+        String temp_yyy = prefs.getString("key_dev_mac","mac_add start up");
         EditText edit_text_url_v = (EditText)findViewById(R.id.edit_text_url);
         edit_text_url_v.setText(temp_yyy);
     }
