@@ -8,9 +8,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -82,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        //Toolbar toolbar = findViewById(R.id.toolbar);
+
         //added
         txt_dev_mac = (TextView) findViewById(R.id.txt_3);
         txt_dev_name = (TextView) findViewById(R.id.txt_4);
@@ -91,8 +97,19 @@ public class MainActivity extends AppCompatActivity {
         txt_bottom = (TextView) findViewById(R.id.txt_bottom);
 
         start_up_show_this();
-    }
+    }//end on create
     //===========
+
+
+    //https://youtu.be/LxQDT5WdT3s?t=371
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.main_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+        //return true;
+    }
+
 
     @Override
     protected void onResume()
@@ -101,6 +118,18 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         start_up_show_this();
     }
+    //=======================MENU Button clicks
+    @SuppressLint("SetTextI18n")
+    public void menu_item_click(View view) {
+        int the_id = view.getId();
+        if (the_id == R.id.menu_1) {
+            Toast.makeText(this, "menu 1", Toast.LENGTH_SHORT).show();
+        }
+        if (the_id == R.id.menu_2) {
+            Toast.makeText(this, "menu 2", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     //=======================Button clicks
     @SuppressLint("SetTextI18n")
     public void buttonOnClick(View view) {
@@ -237,5 +266,9 @@ public class MainActivity extends AppCompatActivity {
 
     //================
 
+//=======================================
 
+
+
+//======================================
 }
