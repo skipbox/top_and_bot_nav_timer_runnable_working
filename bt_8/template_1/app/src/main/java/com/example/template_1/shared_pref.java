@@ -13,6 +13,8 @@ public class shared_pref extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shared_pref);
+
+        start_up_show_this();
     }
     public static final String my_settings_xxx = "MyPrefsFile";
     //button clicks------------------------------------------------------------------

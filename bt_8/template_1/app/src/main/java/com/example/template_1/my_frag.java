@@ -19,6 +19,36 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class my_frag extends Fragment {
+/*
+*working with Android Studio 3.3
+
+https://stackoverflow.com/questions/18324555/android-copy-existing-project-with-new-name-in-android-studio
+
+I'm following these steps and it's been working so far:
+
+1. Copy and paste the folder as used to.
+2. Open Android Studio (v3.0.1).*3.3 works too
+3. Select Open an existing Project.
+4. Close the message that will pop up with title: "Import Gradle Projects".
+5. At left side on Android Tab go to: app -> java -> select the first folder (your project folder)
+6. Refactor => Rename... (Shift + F6)
+7. Rename Package, Select both options - Put the new folder's name in lowercase.
+8. Do Refactor
+*not available in 3.0.1 on the menu
+9. Select: Sync Project with Gradle Files at toolbar.
+10. Build => Clean Project
+11. Go to app -> res -> values -> strings.xml, and change the app name at 2nd line.
+
+so basically
+1-copy folder
+2-refactor
+3-sync with gradle
+4-clean project
+5-edit strings.xml
+
+*/
+
+
 
 
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$

@@ -2,6 +2,7 @@ package com.example.template_1;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
     MediaPlayer mp;
+    public static final String my_settings_xxx = "MyPrefsFile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
        Button b3 = (Button) findViewById(R.id.b3);
        b1.setText("shared pref");
        b2.setText("my");
-       b3.setText("Buttons");
+       b3.setText("Test P");
 
        stopPlaying();
        mp = MediaPlayer.create(getApplicationContext(), R.raw.airplane_ding);mp.start();
@@ -109,8 +111,12 @@ public class MainActivity extends AppCompatActivity {
             TextView tv_1= (TextView)findViewById(R.id.t1);
             tv_1.setText("tv_1 = "+mydate + System.getProperty ("line.separator") + tv_1.getText().toString());
             //Toast.makeText(this, "222", Toast.LENGTH_SHORT).show();
+            //String my_settings_xxx;
+            SharedPreferences prefs = getSharedPreferences(my_settings_xxx, MODE_PRIVATE);
+            String xxx = prefs.getString("key_url","default_default");
+            tv_1.setText("shared pref = "+xxx+mydate + System.getProperty ("line.separator") + tv_1.getText().toString());
         }
-        /// bot buts
+/// ======================bot buts
         if (the_id == R.id.bot_but_1) {
             //Toast.makeText(this, "bot_but_1", Toast.LENGTH_SHORT).show();
             //MediaPlayer.create(getApplicationContext().release());
